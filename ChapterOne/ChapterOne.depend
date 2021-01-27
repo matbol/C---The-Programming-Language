@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1611778182 source:d:\matth\documents\matthias\brain\projects\c-theprogramminglanguage\exercises\chapterone\main.c
+	<stdio.h>
+	<stdlib.h>
+

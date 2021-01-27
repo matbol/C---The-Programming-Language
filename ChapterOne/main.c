@@ -1,23 +1,36 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-///*Exercise 1-4*/
-int main(){
-    float fahr, celsius;
-    int lower, upper, step;
+////Exercise 1-7
+//int main(){
+//    printf("The value of EOF: %d", EOF);
+//}
 
-    lower = 0;
-    upper = 300;
-    step = 20;
+////Exercise 1-6
+////Use ctrl-z for EOF at Windows
+//int main(){
+//    printf("The getchar() != EOF results in: %d ", getchar() != EOF);
+//}
 
-    fahr = lower;
-    printf("Celsius\tFahrenheit\n");
-    while(celsius <= upper){
-        fahr = (9.0/5.0) * celsius + 32;
-        printf("%3.2f\t%3.2f\n", celsius, fahr);
-        celsius = celsius + step;
-    }
-}
+
+
+/////*Exercise 1-4*/
+//int main(){
+//    float fahr, celsius;
+//    int lower, upper, step;
+//
+//    lower = 0;
+//    upper = 300;
+//    step = 20;
+//
+//    fahr = lower;
+//    printf("Celsius\tFahrenheit\n");
+//    while(celsius <= upper){
+//        fahr = (9.0/5.0) * celsius + 32;
+//        printf("%3.2f\t%3.2f\n", celsius, fahr);
+//        celsius = celsius + step;
+//    }
+//}
 
 ///*Exercise 1-3*/
 //int main(){
