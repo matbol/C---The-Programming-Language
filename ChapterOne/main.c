@@ -1,6 +1,66 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+//Exercise 1-10
+int main(){
+    int c;
+
+    c=0;
+    while((c=getchar()) != EOF){
+        if(c == '\t'){
+            printf("\\t");
+        }
+        else if(c == '\b'){
+            printf("\\b");
+        }
+        else if(c == '\\')
+            printf("\\");
+        else{
+            putchar(c);
+        }
+    }
+}
+
+////Exercise 1-9
+//int main(){
+//    int c, iblank;
+//
+//    c = iblank = 0;
+//    while((c=getchar()) != EOF){
+//        if(c == ' '){
+//            iblank++;
+//        }
+//        else if(iblank){
+//            iblank=0;
+//        }
+//        if((c != ' ') || (iblank==1)){
+//            putchar(c);
+//        }
+//    }
+//}
+
+
+////Exercise 1-8
+//int main(){
+//    int i, k, m, c;
+//
+//    i = k = m = c = 0;
+//    while((c = getchar()) != EOF){
+//        if(c == ' '){
+//            ++i;
+//        }
+//        else if(c == '\t'){
+//            ++k;
+//        }
+//        else if(c == '\n'){
+//            ++m;
+//        }
+//    }
+//    printf("There are %d blanks, %d tabs and %d newlines in there.", i, k, m);
+//    return 0;
+//}
+//
+
 ////Exercise 1-7
 //int main(){
 //    printf("The value of EOF: %d", EOF);
