@@ -1,25 +1,25 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-//Exercise 1-10
-int main(){
-    int c;
-
-    c=0;
-    while((c=getchar()) != EOF){
-        if(c == '\t'){
-            printf("\\t");
-        }
-        else if(c == '\b'){
-            printf("\\b");
-        }
-        else if(c == '\\')
-            printf("\\");
-        else{
-            putchar(c);
-        }
-    }
-}
+////Exercise 1-10
+//int main(){
+//    int c;
+//
+//    c=0;
+//    while((c=getchar()) != EOF){
+//        if(c == '\t'){
+//            printf("\\t");
+//        }
+//        else if(c == '\b'){
+//            printf("\\b");
+//        }
+//        else if(c == '\\')
+//            printf("\\");
+//        else{
+//            putchar(c);
+//        }
+//    }
+//}
 
 ////Exercise 1-9
 //int main(){
