@@ -30,6 +30,86 @@ Care about the difference between `=` and `==`.
 Character between two single quotes mean an integer value with the numerical value of the character set.
 
 
+### 1.5.4
 
+For using a good-readable style you can (you should) use symbolic constants like `TRUE` and `FALSE`. You should self define your own constants in the header before. 
+```c 
+#define IN 1
+#define OUT 0
+
+int main(){
+        int c, nl, nw, nc, state;
+
+        state = OUT;
+        nl = nw = nc = 0;
+        while((c=getchar()) != EOF){
+            ++nc;
+            if(c == '\n'){
+                ++nl;
+            }
+            if(c == ' ' || c == '\n' || c == '\t'){
+                state = OUT;
+            }
+            else if(state == OUT){
+                state = IN;
+                ++nw;
+            }
+        }
+        printf("%d %d %d\n", nl, nw, nc);
+}
+```
+ Assignment are associated from right to left, so an interessting assignment could be: 
+```c
+nl = nw = nc = 0;
+```
+ist the same as: 
+```c
+nl = (nw = (nc = 0));
+```
+
+One and *only* one statement of an **if-else** construct is processed.
+
+## 1.6
+
+To hold a number of occurrences of similiar keys, so use arrays. 
+
+```c
+#include <stdio.h>
+
+int main(){
+    int c, i, nwhite, nother;
+    int ndigit[10];
+
+    fwhite = nother = 0;
+    for (i=0; i < 10; ++i){
+        ndigit[i] = 0;
+        while((c=getchar()) != EOF){
+            if(c>='0' && c <= '9'){
+                ++ndigit[c-'0'];
+            }
+            else if (c == ' ' || c == '\n' || c == '\t'){
+                ++nwhite;
+            }
+            else{
+                ++nother;
+            }
+            printf("digits =");
+            for(i=0; i<10; ++i){
+                printf(" %d", ndigit[i]);
+            }
+            printf(", white space = %d, other = %d\n", nwhite, nother);
+            )
+        }
+
+
+    
+}
+```
+`int ndigit[10]` to be 10 integers sorted into an array. Dont forget, arrays numerations begins at 0.
+
+Is the string representation a digit, a number between 0 and 9, you can calculate `c-'0' ` to get the numeric value.
+
+
+        
 [^1]: End of File
 

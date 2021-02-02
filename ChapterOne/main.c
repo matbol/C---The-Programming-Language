@@ -1,6 +1,79 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+
+//Exercise 1-13
+#define IWORD 5
+int main(){
+    int c, i;
+    int cword[IWORD]= { 0 };
+    i = c = 0;
+    while((c=getchar()) != EOF){
+        if(c == ' '){
+            ++i;
+        }
+        else{
+            ++cword[i];
+            putchar(cword[i]+'0');
+        }
+    }
+//Vertical
+    for(i=0; i<IWORD; ++i){
+        for(int k=0; k < cword[i]; ++k){
+            putchar('|');
+        }
+        putchar('\n');
+    }
+
+//Horizontal
+    int maxvalue=0;
+    for(i=0; i<IWORD; ++i){
+        if(cword[i] > maxvalue){
+            maxvalue = cword[i];
+        }
+    }
+//There is anywhere an entry with maxvalue
+//Go from the top value (maxvalue) and decrease
+//the value by the increment of for loop
+//If you have a match, decrease the array entry at
+//position i
+    for(i=0; i<maxvalue; ++i){
+        printf("%d:\t", maxvalue-i);
+        for(int k=0; k<IWORD; ++k){
+            if(cword[k] == maxvalue-i){
+                putchar('#');
+                --cword[k];
+            }
+            putchar('\t');
+        }
+        putchar('\n');
+    }
+    putchar('\t');
+    for(i=0; i<IWORD; ++i){
+        printf("%d\t", i);
+    }
+}
+
+
+
+//
+////Exercise 1-12
+//int main(){
+//    int c;
+//
+//    c=0;
+//    while((c=getchar()) != EOF){
+//        if(c == ' ' || c == '\t'){
+//            putchar('\n');
+//        }
+//        else{
+//            putchar(c);
+//        }
+//    }
+//
+//}
+
+
 ////Exercise 1-10
 //int main(){
 //    int c;
