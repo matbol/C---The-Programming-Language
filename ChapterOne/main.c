@@ -1,23 +1,24 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-/*Exercise 1-17*/
+/*Exercise 1-18*/
 #define MAXLINE 1000
 int getline(char line[], int maxline);
 void copy(char to[], char from[]);
+void delete_blank(char to[], char from[]);
 
 int main(){
-    int character[MAXLINE] = {0};
-    int len;
+    int c, len;
+    int string[MAXLINE];
+    int copy[MAXLINE];
 
     len=0;
-    while((len=getline(character, MAXLINE)) > 0){
-        if(len>80){
-            printf("%s", character);
+    while((len=getline(string, MAXLINE)) > 0){
+        if(len > 1){
+            delete_blank(copy, string);
         }
+        printf("%s", copy);
     }
 }
-
 int getline(char s[], int lim){
     int c, i;
 
@@ -40,6 +41,67 @@ void copy(char to[], char from[]){
           ++i;
     }
 }
+void delete_blank(char to[], char from[]){
+    int i, k, blanked;
+
+    i=k=blanked=0;
+    while(from[i] != '\n'){
+        if(from[i] == '\t'){
+            to[k] = ' ';
+            blanked=0;
+        }
+        else if(from[i] == ' ' && !blanked){
+            blanked = 1;
+            to[k] = from[i];
+            ++k;
+        }
+        else if(from[i] != ' '){
+            to[k] = from[i];
+            blanked=0;
+            ++k;
+        }
+        ++i;
+    }
+}
+///*Exercise 1-17*/
+//#define MAXLINE 1000
+//int getline(char line[], int maxline);
+//void copy(char to[], char from[]);
+//
+//int main(){
+//    int character[MAXLINE] = {0};
+//    int len;
+//
+//    len=0;
+//    while((len=getline(character, MAXLINE)) > 0){
+//        if(len>80){
+//            printf("%s", character);
+//        }
+//    }
+//}
+//
+//int getline(char s[], int lim){
+//    int c, i;
+//
+//    for(i=0; i<lim-1 && (c=getchar()) != EOF && c != '\n'; ++i){
+//        s[i] = c;
+//    }
+//    if(c == '\n'){
+//        s[i] = c;
+//        ++i;
+//    }
+//    s[i] = '\0';
+//    return i;
+//}
+//
+//void copy(char to[], char from[]){
+//    int i;
+//
+//    i=0;
+//    while((to[i] = from[i]) != '\0'){
+//          ++i;
+//    }
+//}
 ///*Exercise 1-16*/
 //#define MAXLINE 1000
 //int getline(char line[], int maxline);
