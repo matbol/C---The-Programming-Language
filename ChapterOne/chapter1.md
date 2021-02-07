@@ -125,6 +125,24 @@ It is possible to call functions as parameter of other function (if they return 
 A function has to have a `return` statement, but it isn't mandatory to return a value.
 Typically (for example in the main function) if you return a zero, it stands for normal termination. A non-zero return value implies Error within the function. 
 
+## 1.8
+
+Call by Value: Call a function with a copy of the input variables (local copy) 
+
+Call by Reference: Call a function with the original variable (reference to original)
+
+Normally C-Functions are *called by Value*. But the usage of a Reference could be adopted by using the address of the variable (pointer). Other way round, the use of arrays in functions is as follows. The value passed to the function is the address of the start element. 
+
+
+## 1.9
+
+>Every test line has at least one character; even a line containing only a newline has length 1.
+
+To know the length of an array as input parameter at a function is not necessary. It is only necessary to know in the upper level area. If the function should not return a value, use `void` as size-type of the function.
+
+A string in C-language ends up with `'\0'`.  
+
+
 
 
 [^1]: End of File

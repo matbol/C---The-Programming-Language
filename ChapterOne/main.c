@@ -1,28 +1,114 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-//Exercise 1-15
-float convFah2Cels(float fahr);
+/*Exercise 1-17*/
+#define MAXLINE 1000
+int getline(char line[], int maxline);
+void copy(char to[], char from[]);
+
 int main(){
-    float fahr;
-    int lower, upper, step;
+    int character[MAXLINE] = {0};
+    int len;
 
-    lower = 0;
-    upper = 300;
-    step = 20;
-
-    fahr = lower;
-    printf("Fahrenheit\tCelsius\n");
-    while(fahr <= upper){
-
-        printf("%3.0f\t%6.1f\n", fahr, convFah2Cels(fahr));
-        fahr = fahr + step;
+    len=0;
+    while((len=getline(character, MAXLINE)) > 0){
+        if(len>80){
+            printf("%s", character);
+        }
     }
 }
 
-float convFah2Cels(float fahr){
-    return ((5.0/9.0) * (fahr-32.0));
+int getline(char s[], int lim){
+    int c, i;
+
+    for(i=0; i<lim-1 && (c=getchar()) != EOF && c != '\n'; ++i){
+        s[i] = c;
+    }
+    if(c == '\n'){
+        s[i] = c;
+        ++i;
+    }
+    s[i] = '\0';
+    return i;
 }
+
+void copy(char to[], char from[]){
+    int i;
+
+    i=0;
+    while((to[i] = from[i]) != '\0'){
+          ++i;
+    }
+}
+///*Exercise 1-16*/
+//#define MAXLINE 1000
+//int getline(char line[], int maxline);
+//void copy(char to[], char from[]);
+//
+//int main(){
+//    int len;
+//    int max;
+//    char line[MAXLINE];
+//    char longest[MAXLINE];
+//
+//    max=0;
+//    while((len=getline(line, MAXLINE)) > 0){
+//        if(len > max){
+//            max = len;
+//            copy(longest, line);
+//        }
+//    }
+//    if(max > 0)
+//        printf("%s\nLength: %i", longest, max);
+//    return 0;
+//}
+//
+//int getline(char s[], int lim){
+//    int c, i;
+//
+//    for(i=0; i<lim-1 && (c=getchar()) != EOF && c != '\n'; ++i){
+//        s[i] = c;
+//    }
+//    if(c == '\n'){
+//        s[i] = c;
+//        ++i;
+//    }
+//    s[i] = '\0';
+//    return i;
+//}
+//
+//void copy(char to[], char from[]){
+//    int i;
+//
+//    i=0;
+//    while((to[i] = from[i]) != '\0'){
+//          ++i;
+//    }
+//}
+
+
+///*Exercise 1-15*/
+//float convFah2Cels(float fahr);
+//int main(){
+//    float fahr;
+//    int lower, upper, step;
+//
+//    lower = 0;
+//    upper = 300;
+//    step = 20;
+//
+//    fahr = lower;
+//    printf("Fahrenheit\tCelsius\n");
+//    while(fahr <= upper){
+//
+//        printf("%3.0f\t%6.1f\n", fahr, convFah2Cels(fahr));
+//        fahr = fahr + step;
+//    }
+//}
+//
+//float convFah2Cels(float fahr){
+//    return ((5.0/9.0) * (fahr-32.0));
+//}
 
 ///*Exercise 1-14*/
 //#define MAXCHAR 95
