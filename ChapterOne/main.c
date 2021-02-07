@@ -1,34 +1,57 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-//Exercise 1-14
-#define MAXCHAR 95
+//Exercise 1-15
+float convFah2Cels(float fahr);
 int main(){
-    int c;
-    int character[MAXCHAR] = { { 0 } };
+    float fahr;
+    int lower, upper, step;
 
-    while((c=getchar()) != EOF){
-        for(int i=0; i<MAXCHAR; ++i){
-                //There are 126-32 different characters
-                //in the ASCI table, with SPACE as first Entry
-            if(i + ' ' == c){
-                ++character[i];
-            }
-        }
+    lower = 0;
+    upper = 300;
+    step = 20;
+
+    fahr = lower;
+    printf("Fahrenheit\tCelsius\n");
+    while(fahr <= upper){
+
+        printf("%3.0f\t%6.1f\n", fahr, convFah2Cels(fahr));
+        fahr = fahr + step;
     }
-
-
-    //Vertical
-    for(int i=0; i<MAXCHAR; ++i){
-        for(int k=0; k < character[i]; ++k){
-            putchar('|');
-        }
-        putchar('\n');
-        putchar(i + ' ' + 1);
-        putchar(' ');
-    }
-
 }
+
+float convFah2Cels(float fahr){
+    return ((5.0/9.0) * (fahr-32.0));
+}
+
+///*Exercise 1-14*/
+//#define MAXCHAR 95
+//int main(){
+//    int c;
+//    int character[MAXCHAR] = { { 0 } };
+//
+//    while((c=getchar()) != EOF){
+//        for(int i=0; i<MAXCHAR; ++i){
+//                //There are 126-32 different characters
+//                //in the ASCI table, with SPACE as first Entry
+//            if(i + ' ' == c){
+//                ++character[i];
+//            }
+//        }
+//    }
+//
+//
+//    //Vertical
+//    for(int i=0; i<MAXCHAR; ++i){
+//        for(int k=0; k < character[i]; ++k){
+//            putchar('|');
+//        }
+//        putchar('\n');
+//        putchar(i + ' ' + 1);
+//        putchar(' ');
+//    }
+//
+//}
 
 //
 ////Exercise 1-13

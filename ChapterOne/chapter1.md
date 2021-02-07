@@ -111,5 +111,21 @@ Is the string representation a digit, a number between 0 and 9, you can calculat
 
 
         
+## 1.7
+
+Functions are used to simplify code and reduce double code. The definition of a functions follows the structur:
+```
+return-type function-name(parameter declarations, ...){
+    declarations
+    statements
+}
+```
+
+It is possible to call functions as parameter of other function (if they return the correct *return-type*).
+A function has to have a `return` statement, but it isn't mandatory to return a value.
+Typically (for example in the main function) if you return a zero, it stands for normal termination. A non-zero return value implies Error within the function. 
+
+
+
 [^1]: End of File
 
