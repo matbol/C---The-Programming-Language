@@ -1,59 +1,88 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
-//Exercise 1-13
-#define IWORD 5
+//Exercise 1-14
+#define MAXCHAR 95
 int main(){
-    int c, i;
-    int cword[IWORD]= { 0 };
-    i = c = 0;
+    int c;
+    int character[MAXCHAR] = { { 0 } };
+
     while((c=getchar()) != EOF){
-        if(c == ' '){
-            ++i;
-        }
-        else{
-            ++cword[i];
-            putchar(cword[i]+'0');
+        for(int i=0; i<MAXCHAR; ++i){
+                //There are 126-32 different characters
+                //in the ASCI table, with SPACE as first Entry
+            if(i + ' ' == c){
+                ++character[i];
+            }
         }
     }
-//Vertical
-    for(i=0; i<IWORD; ++i){
-        for(int k=0; k < cword[i]; ++k){
+
+
+    //Vertical
+    for(int i=0; i<MAXCHAR; ++i){
+        for(int k=0; k < character[i]; ++k){
             putchar('|');
         }
         putchar('\n');
+        putchar(i + ' ' + 1);
+        putchar(' ');
     }
 
-//Horizontal
-    int maxvalue=0;
-    for(i=0; i<IWORD; ++i){
-        if(cword[i] > maxvalue){
-            maxvalue = cword[i];
-        }
-    }
+}
+
+//
+////Exercise 1-13
+//#define IWORD 5
+//int main(){
+//    int c, i;
+//    int cword[IWORD]= { 0 };
+//    i = c = 0;
+//    while((c=getchar()) != EOF){
+//        if(c == ' '){
+//            ++i;
+//        }
+//        else{
+//            ++cword[i];
+//            putchar(cword[i]+'0');
+//        }
+//    }
+////Vertical
+//    for(i=0; i<IWORD; ++i){
+//        for(int k=0; k < cword[i]; ++k){
+//            putchar('|');
+//        }
+//        putchar('\n');
+//    }
+//
+////Horizontal
+//    int maxvalue=0;
+//    for(i=0; i<IWORD; ++i){
+//        if(cword[i] > maxvalue){
+//            maxvalue = cword[i];
+//        }
+//    }
 //There is anywhere an entry with maxvalue
 //Go from the top value (maxvalue) and decrease
 //the value by the increment of for loop
 //If you have a match, decrease the array entry at
 //position i
-    for(i=0; i<maxvalue; ++i){
-        printf("%d:\t", maxvalue-i);
-        for(int k=0; k<IWORD; ++k){
-            if(cword[k] == maxvalue-i){
-                putchar('#');
-                --cword[k];
-            }
-            putchar('\t');
-        }
-        putchar('\n');
-    }
-    putchar('\t');
-    for(i=0; i<IWORD; ++i){
-        printf("%d\t", i);
-    }
-}
-
+//
+//    for(i=0; i<maxvalue; ++i){
+//        printf("%d:\t", maxvalue-i);
+//        for(int k=0; k<IWORD; ++k){
+//            if(cword[k] == maxvalue-i){
+//                putchar('#');
+//                --cword[k];
+//            }
+//            putchar('\t');
+//        }
+//        putchar('\n');
+//    }
+//    putchar('\t');
+//    for(i=0; i<IWORD; ++i){
+//        printf("%d\t", i);
+//    }
+//}
 
 
 //
